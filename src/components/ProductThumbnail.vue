@@ -14,7 +14,11 @@
         <fa-icon icon="shopping-cart" class="product-thumbnail__cart-action" />
       </div>
     </div>
-    <p class="product-thumbnail__name">{{ product.ItemName }}</p>
+    <router-link
+      :to="{ name: 'product', params: { id: product.ProductID } }"
+      class="product-thumbnail__name"
+      >{{ product.ItemName }}
+    </router-link>
     <router-link
       :to="{ name: 'product', params: { id: product.ProductID } }"
       class="product-thumbnail__link"
@@ -79,6 +83,7 @@ export default {
   &__name {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
+    color: $main-gray;
   }
 
   &__link {

@@ -61,6 +61,9 @@ export default {
     display: flex;
     align-items: center;
     margin-right: 2rem;
+    @media only screen and (max-width: 750px) {
+      margin-left: 1rem;
+    }
   }
 
   &__section {

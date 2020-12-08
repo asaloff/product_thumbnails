@@ -52,6 +52,9 @@ export default {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
+    @media only screen and (max-width: 750px) {
+      justify-content: space-around;
+    }
   }
 
   &__logo {

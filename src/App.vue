@@ -1,32 +1,58 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <navigation />
+    <div class="content-container">
+      <manufacturer-header v-bind="{ products }" />
+      <router-view></router-view>
     </div>
-    <router-view />
   </div>
 </template>
 
+<script>
+import Navigation from "./components/Navigation.vue";
+import ManufacturerHeader from "@/components/ManufacturerHeader.vue";
+import products from "@/fixtures/products.json";
+
+export default {
+  name: "App",
+  components: {
+    Navigation,
+    ManufacturerHeader
+  },
+  data() {
+    return {
+      products
+    };
+  }
+};
+</script>
+
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  font-family: Helvetica, Arial, sans-serif;
+  color: $main-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
 }
 
-#nav {
-  padding: 30px;
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+a {
+  color: $color-secondary;
+  text-decoration: none;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  &:hover {
+    text-decoration: underline;
   }
+}
+
+.content-container {
+  width: 100%;
+  max-width: 1200px;
 }
 </style>
